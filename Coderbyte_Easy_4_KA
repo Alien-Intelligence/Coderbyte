@@ -1,0 +1,26 @@
+def LetterChanges(st):
+    alb = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+           'w', 'x', 'y', 'z']
+    als = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+           'W', 'X', 'Y', 'Z']
+
+    li = list(st)
+    so = []
+    for i in li:
+        if i not in alb and i not in als:
+            so.append(i)
+        else:
+            if i == 'z':
+                so.append('a')
+            elif i == 'Z':
+                so.append('A')
+            else:
+                so.append(chr(ord(i) + 1))
+    sol = "".join(so)
+    for j in sol:
+        if j in ('a','e','i','o','u'):
+            sol = sol.replace(j, j.upper())
+
+    return sol
+
+print (LetterChanges(input()))
